@@ -77,6 +77,13 @@ class DemandeConge
      */
     private $Etat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Demandes")
+     */
+    private $user;
+
+
+
 
 
     public function __construct()
@@ -87,10 +94,10 @@ class DemandeConge
 
     }
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Employees::class, inversedBy="demandeConges")
-     */
-    private $employee;
+//    /**
+//     * @ORM\ManyToOne(targetEntity=Employees::class, inversedBy="demandeConges")
+//     */
+//    private $employee;
 
     public function getId(): ?int
     {
@@ -141,15 +148,31 @@ class DemandeConge
         return $this;
     }
 
-    public function getEmployee(): ?Employees
-    {
-        return $this->employee;
-    }
+//    public function getEmployee(): ?Employees
+//    {
+//        return $this->employee;
+//    }
+//
+//    public function setEmployee(?Employees $employee): self
+//    {
+//        $this->employee = $employee;
+//
+//        return $this;
+//    }
 
-    public function setEmployee(?Employees $employee): self
-    {
-        $this->employee = $employee;
+public function getUser(): ?User
+{
+    return $this->user;
+}
 
-        return $this;
-    }
+public function setUser(?User $user): self
+{
+    $this->user = $user;
+
+    return $this;
+}
+
+
+
+
 }

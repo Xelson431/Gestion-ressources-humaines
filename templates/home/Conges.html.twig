@@ -22,8 +22,8 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="Employee"></label>
-                                <input type="text" class="form-control" value="" name="Employee" id="Employee" hidden>
+
+                                <input type="text" class="form-control" value="{{ app.user.id }}" name="Employee" id="Employee" >
                             </div>
                         </div>
 
@@ -108,7 +108,7 @@
             {% for data in conges %}
                 <tr>
 
-                    <td>{{ data.employee?data.employee.nom }}   {{ data.employee?data.employee.prenom }}</td>
+{#                    <td>{{ data.user.name }}   </td>#}
                     <td> {{ data.dateDemande|date('Y-m-d') }}</td>
                     <td> {{ data.dateDepart|date('Y-m-d') }}</td>
                     <td> {{ data.dateRetour|date('Y-m-d') }}</td>
@@ -131,11 +131,11 @@
                 </tr>
             {% endfor %}
         {% else %}
-            {% for data in conges|filter(e => e.employee == app.user) %}
-{#            {% for data in conges %}#}
+       {% for data in conges%}       {#     |filter(e => e.employee == app.user)#}
+                {#            {% for data in conges %}#}
                 <tr>
 
-                    <td>{{ data.employee?data.employee.nom }}   {{ data.employee?data.employee.prenom }}</td>
+{#                    <td>{{ data.employee?data.employee.nom }}   {{ data.employee?data.employee.prenom }}</td>#}
                     <td> {{ data.dateDemande|date('d-m-Y') }}</td>
                     <td> {{ data.dateDepart|date('d-m-Y')  }}</td>
                     <td> {{ data.dateRetour|date('d-m-Y')  }}</td>

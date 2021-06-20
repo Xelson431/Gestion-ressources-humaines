@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fe4a590-94b8-423c-9f9b-092bea4989e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.php-version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/DemandeConge.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/DemandeConge.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Employees.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/Conges.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/Conges.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/Employees.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/Employees.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,6 +223,7 @@
       <workItem from="1623984560313" duration="4349000" />
       <workItem from="1624054126766" duration="2165000" />
       <workItem from="1624073172037" duration="7631000" />
+      <workItem from="1624156723934" duration="9616000" />
     </task>
     <servers />
   </component>
@@ -232,11 +233,41 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -255,9 +286,10 @@
     </state>
     <state x="797" y="221" key="#com.intellij.ide.util.MemberChooser/66.0.1854.1080/1920.180.1440.860@66.0.1854.1080" timestamp="1623891709227" />
     <state x="802" y="221" key="#com.intellij.ide.util.MemberChooser/75.0.1845.1080@75.0.1845.1080" timestamp="1623769401892" />
-    <state x="727" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1623862257541">
+    <state x="727" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624158562972">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
+    <state x="727" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/66.0.1854.1080/1920.0.1440.860@66.0.1854.1080" timestamp="1624158562972" />
     <state x="727" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/66.0.1854.1080/1920.180.1440.860@66.0.1854.1080" timestamp="1623862257541" />
     <state x="700" y="262" key="NewPhpClassDialog" timestamp="1623986028075">
       <screen x="66" y="0" width="1854" height="1080" />
@@ -271,14 +303,16 @@
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/66.0.1854.1080/1920.180.1440.860@66.0.1854.1080" timestamp="1623878701221" />
-    <state x="647" y="252" key="run.anything.popup" timestamp="1623896304428">
+    <state x="647" y="252" width="672" height="677" key="run.anything.popup" timestamp="1624164154748">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
     <state x="647" y="252" key="run.anything.popup/66.0.1854.1080/1920.180.1440.860@66.0.1854.1080" timestamp="1623896304428" />
+    <state x="647" y="252" width="672" height="677" key="run.anything.popup/66.0.1854.1080@66.0.1854.1080" timestamp="1624164154748" />
     <state x="653" y="252" key="run.anything.popup/75.0.1845.1080@75.0.1845.1080" timestamp="1623770383319" />
-    <state x="656" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1623902504524">
+    <state x="656" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1624164489815">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
     <state x="656" y="235" width="672" height="678" key="search.everywhere.popup/66.0.1854.1080/1920.180.1440.860@66.0.1854.1080" timestamp="1623902504524" />
+    <state x="656" y="235" width="672" height="678" key="search.everywhere.popup/66.0.1854.1080@66.0.1854.1080" timestamp="1624164489815" />
   </component>
 </project>

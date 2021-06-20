@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\DemandeConge;
-use App\Entity\Employees;
+//use App\Entity\Employees;
 use App\Entity\Projets;
 use App\Entity\User;
+use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use PhpParser\Node\Stmt\Else_;
@@ -13,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class HomeController extends AbstractController
 {
@@ -44,15 +46,37 @@ class HomeController extends AbstractController
      * @Route("/employees", name="employees")
      */
 
-    public function employees(Request $request  , EntityManagerInterface $manager): Response
+    public function employees(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $manager): Response
     {
-
+//        $user = new User();
+//        $form = $this->createForm(RegistrationFormType::class, $user);
+//        $form->handleRequest($request);
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            // encode the plain password
+//            $user->setPassword(
+//                $passwordEncoder->encodePassword(
+//                    $user,
+//                    $form->get('plainPassword')->getData()
+//                )
+//            );
+//
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($user);
+//            $entityManager->flush();
+//            // do anything else you need here, like send an email
+//
+//
+//        }
 
         if ($request->isMethod("POST")
         ) {
 
             $nom = $request->get('nom');
             $prenom = $request->get('prenom');
+
+            $name=$nom.' '.$prenom;
+
             $cin = $request->get('cin');
             $email = $request->get('email');
             $address = $request->get('address');
@@ -63,14 +87,13 @@ class HomeController extends AbstractController
             $Salaire = $request->get('Salaire');
             $tel = $request->get('tel');
             $pass = $request->get('pass');
+            $Role="ROLE_USER";
 
 
 
 
-
-            $addEmployee= new Employees();
-            $addEmployee->setNom($nom);
-            $addEmployee->setPrenom($prenom);
+            $addEmployee= new User();
+            $addEmployee->setName($name);
             $addEmployee->setCin($cin);
             $addEmployee->setEmail($email);
             $addEmployee->setAdresse($address);
@@ -78,7 +101,15 @@ class HomeController extends AbstractController
             $addEmployee->setSalaire($Salaire);
             $addEmployee->setTel($tel);
             $addEmployee->setDepartement($Departement);
-            $addEmployee->setPass($pass);
+            $addEmployee->setRoles($Role);
+
+           $addEmployee->setPassword(
+               $passwordEncoder->encodePassword(
+                   $addEmployee,
+                   $pass
+               )
+           );
+
             $addEmployee->setDateNaissance(new \DateTime($DateNaissance));
             $addEmployee->setDateEmbauche(new \DateTime($DateEmbauche));
 
@@ -93,7 +124,7 @@ class HomeController extends AbstractController
 
 
         //$Employees = $manager->getRepository(Employees::class)->findBy([], [], 10);
-        $Employees = $manager->getRepository(Employees::class)->findAll();
+        $Employees = $manager->getRepository(User::class)->findAll();
 
 //        foreach ($mysqltableVille as $value) {
 //
@@ -132,16 +163,19 @@ class HomeController extends AbstractController
         if ($request->isMethod("POST")
         ) {
 
-            $Employee = $request->get('Email');
+            $Employee = $request->get('Employee');
             $Motif = $request->get('MotifConge');
             $dateDep = $request->get('DateDepartConge');
             $dateFin = $request->get('DateFinConge');
             //$str3 = $request->get('nbr');
             $currentDate=date("h:i:sa");
-
+            //$User=new User();
             $DemandeConge= new DemandeConge();
             $DemandeConge->setMotifConge($Motif);
-            $DemandeConge->setEmployee('82');
+            $DemandeConge->setUser();
+
+
+
             $DemandeConge->setEtat('En Attente');
             $DemandeConge->setDateDepart(new \DateTime($dateDep));
             $DemandeConge->setDateRetour(new \DateTime($dateFin));
@@ -162,6 +196,7 @@ class HomeController extends AbstractController
         return $this->render('home/Conges.html.twig', [
 
             "conges" => $manager->getRepository(DemandeConge::class)->findAll(),
+            "User" => $manager->getRepository(User::class)->findAll(),
             //"currentUser"=>$currentUser,
             //"users"=>$users->findAll(),
 

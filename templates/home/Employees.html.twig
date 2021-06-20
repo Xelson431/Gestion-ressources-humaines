@@ -20,7 +20,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="employees" method="POST">
+
+                    <form action="{{ path('employees') }}" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nom">Nom</label>
@@ -37,14 +38,17 @@
                             <input type="text" class="form-control"  name="cin" id="cin" placeholder="">
                         </div>
 
+
+
+
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="Email" class="form-control"  name="email" id="email" placeholder="Email">
+                            <input type="Email" class="form-control"  name="email" id="email" placeholder="Email" required>
                         </div>
 
                         <div class="form-group">
                             <label for="pass">Password</label>
-                            <input type="password" class="form-control"  name="pass" id="pass" placeholder="password" value="testtest">
+                            <input type="password" class="form-control"  name="pass" id="pass" placeholder="password" value="testtest" required>
                         </div>
 
 
@@ -86,7 +90,7 @@
 
                             <div class="form-group col-md-4">
                                 <label for="tel">Tel</label>
-                                <input type="text" class="form-control" name="tel" id="tel">
+                                <input type="text" class="form-control" name="tel" id="tel" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="DateEmbauche">Date d'Embauche</label>
@@ -95,7 +99,7 @@
 
                             <div class="form-group col-md-4">
                                 <label for="Salaire">Salaire</label>
-                                <input type="text" class="form-control" name="Salaire" id="Salaire">
+                                <input type="text" class="form-control" name="Salaire" id="Salaire" required>
                             </div>
 
 
@@ -103,9 +107,27 @@
                         <div class="form-group">
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Ajouter</button>
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
                     </form>
+
+
+
+{#                    {{ form_start(registrationForm) }}#}
+{#                    <div class="form-group">#}
+{#                        {{ form_row(registrationForm.email) }}#}
+
+{#                    </div>#}
+{#                    {{ form_row(registrationForm.name) }}#}
+{#                    {{ form_row(registrationForm.adresse) }}#}
+{#                    {{ form_row(registrationForm.plainPassword, {#}
+{#                        label: 'Password'#}
+{#                    }) }}#}
+
+{#                    <button type="submit" class="btn">Register</button>#}
+{#                    {{ form_end(registrationForm) }}#}
+
                 </div>
                 <div class="modal-footer">
 
@@ -137,7 +159,7 @@
                     {% for data in Employees %}
                         <tr>
 
-                            <td>{{ data.nom }} {{ data.prenom }}</td>
+                            <td>{{ data.name }}</td>
                             <td> {{ data.grade }}</td>
                             <td> {{ data.Departement }}</td>
                             <td> {{ data.cin }}</td>
