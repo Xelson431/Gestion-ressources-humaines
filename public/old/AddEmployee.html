@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Table - Gestion de resources humaines</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+</head>
+
+<body id="page-top">
+<div id="wrapper">
+    <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-dark p-0">
+        <div class="container-fluid d-flex flex-column p-0">
+            <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                <div class="sidebar-brand-icon rotate-n-15"></div>
+                <div class="sidebar-brand-text mx-3"><span></span></div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Mon Profile</span></a></li>
+                <li class="nav-item"><a class="nav-link active" href="Employes.html"><i class="fas fa-table"></i><span>Employes</span></a><a class="nav-link" href="Conges.html"><i class="fas fa-table"></i><span>Conges</span></a><a class="nav-link" href="Presence.html"><i class="fas fa-table"></i><span>Presence</span></a>
+                    <a
+                            class="nav-link" href="Rapports.html"><i class="fas fa-table"></i><span>Rapports</span></a><a class="nav-link" href="Paie.html"><i class="fas fa-table"></i><span>Paie</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Connexion</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Inscription</span></a></li>
+            </ul>
+            <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+        </div>
+    </nav>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <form action="AddEmployee.html">
+            <button type="submit"  class="btn-primary btn-block">Ajouter un Employe</button>
+        </form>
+
+        <div id="content">
+            <br>
+            <br>
+            <div class="mx-5  ">
+            <form action="addEmploye.php" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nom">Nom</label>
+                        <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="prenom">Prenom</label>
+                        <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prenom">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="adress">Email</label>
+                    <input type="Email" class="form-control"  name="email" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="adress">Address</label>
+                    <input type="text" class="form-control"  name="adress" id="adress" placeholder="1234 Main St">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="DateNaissance">Date de Naissance</label>
+                        <input type="date" class="form-control" name="DateNaissance" id="DateNaissance">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="titre">Titre</label>
+                        <select id="titre"  name="titre" class="form-control">
+                            <option selected>Backend</option>
+                            <option selected>Frontend</option>
+                            <option selected>Encadrant</option>
+                            <option selected>PO</op tion>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="tel">Tel</label>
+                        <input type="text" class="form-control" name="tel" id="tel">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="DateEmbauche">Date d'Embauche</label>
+                        <input type="date" class="form-control" name="DateEmbauche" id="DateEmbauche">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="Salaire">Salaire</label>
+                        <input type="text" class="form-control" name="Salaire" id="Salaire">
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+            </form>
+            </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/chart.min.js"></script>
+<script src="assets/js/bs-init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="assets/js/theme.js"></script>
+</body>
+
+</html>

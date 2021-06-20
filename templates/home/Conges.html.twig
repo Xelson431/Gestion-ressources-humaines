@@ -1,0 +1,167 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+        Demander un conge
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="Conges" method="post">
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Employee"></label>
+                                <input type="text" class="form-control" value="" name="Employee" id="Employee" hidden>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="MotifConge">Motif de Conge</label>
+                                <input type="text" class="form-control" name="MotifConge" id="MotifConge">
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="DateDepartConge">Date de Depart de Conge</label>
+                                <input type="date" class="form-control" name="DateDepartConge" id="DateDepartConge">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="DateFinConge">Date de Fin de Conge</label>
+                                <input type="date" class="form-control" name="DateFinConge" id="DateFinConge">
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                        <button type="submit" class="btn btn-primary ">Demander</button>
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Fermer</button>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+{#   <pre> {{ dump(app.user) }}</pre>#}
+    <div class="container-fluid">
+        <br>
+        <h3 class="text-dark mb-4">Team</h3>
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">Employee Info</p>
+            </div>
+            <div class="card-body">
+
+<div class="table-responsive">
+
+    <table id="example" class="  datatable table table-striped table-bordered"  >
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>date demande</th>
+            <th>date Depart</th>
+            <th>date retour</th>
+            <th>motif</th>
+            <th>etat</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% if is_granted("ROLE_ADMIN") %}
+
+{#                <tr>#}
+{#                    <td>{{ app.user.email }}</td>#}
+
+{#                </tr>#}
+
+            {% for data in conges %}
+                <tr>
+
+                    <td>{{ data.employee?data.employee.nom }}   {{ data.employee?data.employee.prenom }}</td>
+                    <td> {{ data.dateDemande|date('Y-m-d') }}</td>
+                    <td> {{ data.dateDepart|date('Y-m-d') }}</td>
+                    <td> {{ data.dateRetour|date('Y-m-d') }}</td>
+                    <td> {{ data.motifConge }}</td>
+                    <td> {{ data.etat }}</td>
+                    {% if data.etat!='Approuvé' and data.etat!='Refusé'  %}
+                        <td>
+                            <form action="{{ path('etatApprouver', {'id': data.id}) }}" method="post">
+                                <input type="submit" value="Approuver" name="approuver" class="btn btn-success btn-sm btn-block">
+                            </form>
+
+                        </td>
+                        <td>
+                            <form action="{{ path('etatRefuser', {'id': data.id}) }}" method="post">
+                                <input type="submit" value="Refuser" name="Refuser" class="btn btn-danger btn-sm btn-block">
+                            </form>
+                        </td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+        {% else %}
+            {% for data in conges|filter(e => e.employee == app.user) %}
+{#            {% for data in conges %}#}
+                <tr>
+
+                    <td>{{ data.employee?data.employee.nom }}   {{ data.employee?data.employee.prenom }}</td>
+                    <td> {{ data.dateDemande|date('d-m-Y') }}</td>
+                    <td> {{ data.dateDepart|date('d-m-Y')  }}</td>
+                    <td> {{ data.dateRetour|date('d-m-Y')  }}</td>
+                    <td> {{ data.motifConge }}</td>
+                    <td> {{ data.etat }}</td>
+
+
+                </tr>
+            {% endfor %}
+
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

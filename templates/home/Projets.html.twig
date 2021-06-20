@@ -1,0 +1,141 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+        Ajouter un Projet
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Projets</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ path('Projets') }}" method="POST">
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Projet">Projet</label>
+                                <input type="text" class="form-control" name="Projet" id="Projet">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Departement">Departement</label>
+                                <select id="Departement"  name="Departement" class="form-control">
+                                    <option selected>Division a</option>
+                                    <option selected>Division b</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="DateDebut">Date de Debut</label>
+                                <input type="date" class="form-control" name="DateDebut" id="DateDebut">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="DateFin">Date de Fin</label>
+                                <input type="date" class="form-control" name="DateFin" id="DateFin">
+                            </div>
+                        </div>
+
+
+
+
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+<br>
+        <h3 class="text-dark mb-4">Team</h3>
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">Employee Info</p>
+            </div>
+            <div class="card-body">
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Projet</th>
+
+
+                        <th>DateDebut</th>
+                        <th>DateFin</th>
+                        <th>Statut</th>
+                        <th>Departement</th>
+                        <th>Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for data in Projets %}
+                        <tr>
+
+                            <td>{{ data.Projet }} </td>
+                            <td> {{ data.dateDebut|date('d-m-Y')  }}</td>
+                            <td> {{ data.dateFin|date('d-m-Y')  }}</td>
+                            <td> {{ data.statut }}</td>
+                            <td> {{ data.Departement }}</td>
+                            <td>
+
+                                {% if data.statut=='Fini' %}
+
+
+                                            <form action="{{ path('Action', {'id': data.id,'Action': 'En cours'}) }}" method="POST">
+                                                <input type="submit" value="Marquer comme non fini" name="Terminer" class="btn btn-success btn-sm btn-block">
+                                            </form>
+                                            <form action="{{ path('SupprimerProjet', {'id': data.id}) }}" method="POST">
+                                                <input type="submit" value="Supprimer" name="Supprimer" class="btn btn-danger btn-sm btn-block">
+                                            </form>
+
+
+
+                                {% endif %}
+                                {% if data.statut=='En cours' %}
+                                    <form action="{{ path('Action', {'id': data.id,'Action': 'Fini'}) }}" method="POST">
+                                        <input type="submit" value="Terminer" name="Terminer" class="btn btn-danger btn-sm btn-block">
+                                    </form>
+                                {% endif %}
+
+
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
