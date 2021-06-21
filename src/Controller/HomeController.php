@@ -93,6 +93,7 @@ class HomeController extends AbstractController
 
 
             $addEmployee= new User();
+
             $addEmployee->setName($name);
             $addEmployee->setCin($cin);
             $addEmployee->setEmail($email);
@@ -101,7 +102,7 @@ class HomeController extends AbstractController
             $addEmployee->setSalaire($Salaire);
             $addEmployee->setTel($tel);
             $addEmployee->setDepartement($Departement);
-            $addEmployee->setRoles($Role);
+            $addEmployee->addRole($Role);
 
            $addEmployee->setPassword(
                $passwordEncoder->encodePassword(
@@ -163,16 +164,17 @@ class HomeController extends AbstractController
         if ($request->isMethod("POST")
         ) {
 
-            $Employee = $request->get('Employee');
+            //$Employee = $request->get('Employee');
             $Motif = $request->get('MotifConge');
             $dateDep = $request->get('DateDepartConge');
             $dateFin = $request->get('DateFinConge');
             //$str3 = $request->get('nbr');
             $currentDate=date("h:i:sa");
             //$User=new User();
+
             $DemandeConge= new DemandeConge();
             $DemandeConge->setMotifConge($Motif);
-            $DemandeConge->setUser();
+            $DemandeConge->setUser($this->getUser());
 
 
 
@@ -350,18 +352,19 @@ class HomeController extends AbstractController
 //
 //
 //
-//        /**
-//         * @Route("/Projets", name="Projets")
-//         */
-//        public function Projets(Request $request  , EntityManagerInterface $manager): Response
-//    {
-//
-//        return $this->render('home/Projets.html.twig', [
-//            'controller_name' => 'HomeController',
-//
-//
-//        ]);
-//
-//    }
+        /**
+         * @Route("/Profile", name="Profile")
+         */
+        public function Profile(Request $request  , EntityManagerInterface $manager): Response
+    {
+
+        return $this->render('home/Profile.html.twig', [
+            'controller_name' => 'HomeController',
+            "User" => $manager->getRepository(User::class)->findAll(),
+
+
+        ]);
+
+    }
 
 }

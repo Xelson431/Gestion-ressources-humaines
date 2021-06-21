@@ -3,7 +3,7 @@
 {% block body %}
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
-        Demander un conge
+        Demander un Congé
     </button>
 
     <!-- Modal -->
@@ -11,7 +11,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Demander un Congé</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -20,16 +20,16 @@
                     <form action="Conges" method="post">
 
 
+    {#                        <div class="form-row">#}
+    {#                            <div class="form-group col-md-6">#}
+
+    {#                                <input type="text" class="form-control" value="{{ app.user.id }}" name="Employee" id="Employee" >#}
+    {#                            </div>#}
+    {#                        </div>#}
+
                         <div class="form-row">
                             <div class="form-group col-md-6">
-
-                                <input type="text" class="form-control" value="{{ app.user.id }}" name="Employee" id="Employee" >
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="MotifConge">Motif de Conge</label>
+                                <label for="MotifConge">Motif de Congé</label>
                                 <input type="text" class="form-control" name="MotifConge" id="MotifConge">
                             </div>
                         </div>
@@ -37,14 +37,14 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="DateDepartConge">Date de Depart de Conge</label>
+                                <label for="DateDepartConge">Date de Depart de Congé</label>
                                 <input type="date" class="form-control" name="DateDepartConge" id="DateDepartConge">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="DateFinConge">Date de Fin de Conge</label>
+                                <label for="DateFinConge">Date de Fin de Congé</label>
                                 <input type="date" class="form-control" name="DateFinConge" id="DateFinConge">
                             </div>
                         </div>
@@ -108,7 +108,7 @@
             {% for data in conges %}
                 <tr>
 
-{#                    <td>{{ data.user.name }}   </td>#}
+                    <td>{{ data.user.name }}   </td>
                     <td> {{ data.dateDemande|date('Y-m-d') }}</td>
                     <td> {{ data.dateDepart|date('Y-m-d') }}</td>
                     <td> {{ data.dateRetour|date('Y-m-d') }}</td>
@@ -135,7 +135,7 @@
                 {#            {% for data in conges %}#}
                 <tr>
 
-{#                    <td>{{ data.employee?data.employee.nom }}   {{ data.employee?data.employee.prenom }}</td>#}
+                    <td>{{ data.user.name  }}</td>
                     <td> {{ data.dateDemande|date('d-m-Y') }}</td>
                     <td> {{ data.dateDepart|date('d-m-Y')  }}</td>
                     <td> {{ data.dateRetour|date('d-m-Y')  }}</td>

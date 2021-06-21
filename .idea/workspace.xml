@@ -8,16 +8,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fe4a590-94b8-423c-9f9b-092bea4989e4" name="Default Changelist" comment="">
+    <list default="true" id="7fe4a590-94b8-423c-9f9b-092bea4989e4" name="Default Changelist" comment="e">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/avatars/avatar1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/avatars/avatar2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/avatars/avatar3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/avatars/avatar4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/AddEmployee.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/Conges.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/Employes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/Paie.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/Presence.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/Rapports.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/addEmploye.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/blank.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/dbh.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/old/register.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/DemandeConge.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/DemandeConge.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Employees.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/Conges.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/Conges.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/Employees.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/Employees.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,6 +242,9 @@
       <workItem from="1624054126766" duration="2165000" />
       <workItem from="1624073172037" duration="7631000" />
       <workItem from="1624156723934" duration="9616000" />
+      <workItem from="1624206198351" duration="2061000" />
+      <workItem from="1624209103983" duration="1541000" />
+      <workItem from="1624249677194" duration="10473000" />
     </task>
     <servers />
   </component>
@@ -272,6 +293,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="e" />
+    <option name="LAST_COMMIT_MESSAGE" value="e" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="623" y="218" key="#Inspections" timestamp="1623860019955">
       <screen x="66" y="0" width="1854" height="1080" />
@@ -303,6 +328,10 @@
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/66.0.1854.1080/1920.180.1440.860@66.0.1854.1080" timestamp="1623878701221" />
+    <state x="583" y="272" key="Vcs.Push.Dialog.v2" timestamp="1624249773206">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="583" y="272" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1624249773206" />
     <state x="647" y="252" width="672" height="677" key="run.anything.popup" timestamp="1624164154748">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
