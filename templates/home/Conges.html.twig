@@ -76,24 +76,25 @@
 {#   <pre> {{ dump(app.user) }}</pre>#}
     <div class="container-fluid">
         <br>
-        <h3 class="text-dark mb-4">Team</h3>
+        <h3 class="text-dark mb-4"></h3>
         <div class="card shadow">
             <div class="card-header py-3">
-                <p class="text-primary m-0 font-weight-bold">Employee Info</p>
+                <p class="text-primary m-0 font-weight-bold">Demandes de Congés</p>
             </div>
             <div class="card-body">
 
-<div class="table-responsive">
+<div class="table-responsive" style="overflow: hidden">
 
-    <table id="example" class="  datatable table table-striped table-bordered"  >
+    <table id="example" class="datatable table table-striped table-bordered"  >
         <thead>
         <tr>
             <th>Name</th>
-            <th>date demande</th>
-            <th>date Depart</th>
-            <th>date retour</th>
-            <th>motif</th>
-            <th>etat</th>
+            <th>Date de Demande</th>
+            <th>Date de Depart</th>
+            <th>Date de Retour</th>
+            <th>Motif</th>
+            <th>Etat</th>
+
         </tr>
         </thead>
         <tbody>
@@ -117,16 +118,18 @@
                     {% if data.etat!='Approuvé' and data.etat!='Refusé'  %}
                         <td>
                             <form action="{{ path('etatApprouver', {'id': data.id}) }}" method="post">
-                                <input type="submit" value="Approuver" name="approuver" class="btn btn-success btn-sm btn-block">
+                                <input type="submit" value="✔" name="approuver" class="btn btn-success btn-sm btn-block">
                             </form>
 
                         </td>
                         <td>
                             <form action="{{ path('etatRefuser', {'id': data.id}) }}" method="post">
-                                <input type="submit" value="Refuser" name="Refuser" class="btn btn-danger btn-sm btn-block">
+                                <input type="submit" value="❌" name="Refuser" class="btn btn-danger btn-sm btn-block">
                             </form>
                         </td>
                     {% endif %}
+
+
 
                 </tr>
             {% endfor %}

@@ -35,46 +35,27 @@ class HomeController extends AbstractController
 
 
 
-        return $this->render('home/index.html.twig', [
-           'controller_name' => 'HomeController',
-            'message' => 'hello',
+        return $this->render('home/Profile.html.twig', [
+            'controller_name' => 'HomeController',
+            //obtenir des données d'une base de données et les mettre dans un tableau 'User'
+            "User" => $manager->getRepository(User::class)->findAll(),
+
 
         ]);
     }
 
+    //Configuration de la route (path)
     /**
      * @Route("/employees", name="employees")
      */
-
     public function employees(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $manager): Response
     {
-//        $user = new User();
-//        $form = $this->createForm(RegistrationFormType::class, $user);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            // encode the plain password
-//            $user->setPassword(
-//                $passwordEncoder->encodePassword(
-//                    $user,
-//                    $form->get('plainPassword')->getData()
-//                )
-//            );
-//
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->persist($user);
-//            $entityManager->flush();
-//            // do anything else you need here, like send an email
-//
-//
-//        }
+
 
         if ($request->isMethod("POST")
         ) {
-
             $nom = $request->get('nom');
             $prenom = $request->get('prenom');
-
             $name=$nom.' '.$prenom;
 
             $cin = $request->get('cin');
@@ -89,11 +70,7 @@ class HomeController extends AbstractController
             $pass = $request->get('pass');
             $Role="ROLE_USER";
 
-
-
-
             $addEmployee= new User();
-
             $addEmployee->setName($name);
             $addEmployee->setCin($cin);
             $addEmployee->setEmail($email);
@@ -103,52 +80,23 @@ class HomeController extends AbstractController
             $addEmployee->setTel($tel);
             $addEmployee->setDepartement($Departement);
             $addEmployee->addRole($Role);
-
            $addEmployee->setPassword(
                $passwordEncoder->encodePassword(
                    $addEmployee,
                    $pass
                )
            );
-
             $addEmployee->setDateNaissance(new \DateTime($DateNaissance));
             $addEmployee->setDateEmbauche(new \DateTime($DateEmbauche));
-
-
             $manager->persist($addEmployee);
             $manager->flush();
-
-
         }
 
-
-
-
-        //$Employees = $manager->getRepository(Employees::class)->findBy([], [], 10);
-        $Employees = $manager->getRepository(User::class)->findAll();
-
-//        foreach ($mysqltableVille as $value) {
-//
-//            $doc = new \App\Document\Ville();
-//
-//            $doc->setNomVille($value->getNomVille());
-//
-//            $documentManager->persist($doc);
-//            $documentManager->flush();
-//        };
-
-
-
+            //Pour afficher le code html Employees.html.twig
         return $this->render('home/employees.html.twig', [
             'controller_name' => 'HomeController',
-
-
-            "Employees" => $Employees,
-
-
-
-
-
+            //obtenir des données d'une base de données et les mettre dans un tableau 'Employees'
+            "Employees" => $manager->getRepository(User::class)->findAll(),
 
         ]);
 
@@ -351,15 +299,32 @@ class HomeController extends AbstractController
 //
 //
 //
-//
+        //Configuration de la route (path)
         /**
          * @Route("/Profile", name="Profile")
          */
         public function Profile(Request $request  , EntityManagerInterface $manager): Response
     {
-
+        //Pour afficher le code html Profile.html.twig
         return $this->render('home/Profile.html.twig', [
             'controller_name' => 'HomeController',
+            //obtenir des données d'une base de données et les mettre dans un tableau 'User'
+            "User" => $manager->getRepository(User::class)->findAll(),
+
+
+        ]);
+
+    }
+
+    /**
+     * @Route("/Salaire", name="Salaire")
+     */
+    public function Salaire(Request $request  , EntityManagerInterface $manager): Response
+    {
+        //Pour afficher le code html Profile.html.twig
+        return $this->render('home/Salaire.html.twig', [
+            'controller_name' => 'HomeController',
+            //obtenir des données d'une base de données et les mettre dans un tableau 'User'
             "User" => $manager->getRepository(User::class)->findAll(),
 
 
